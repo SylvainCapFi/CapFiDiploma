@@ -16,6 +16,9 @@
   box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px inset;
   transition: box-shadow 0.2s;
 }
+.TokenItem-title {
+text-align: left;
+}
 
 .TokenItem-label {
   text-align: left;

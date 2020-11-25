@@ -17,7 +17,7 @@ contract("CapFiDiploma token", accounts => {
       let token = await instance.mint("#ff00dd", "#ddddff");
 
       let tokens = await instance.tokensOf(owner);
-      let gradients = await instance.getGradient(tokens[0]);
+      let gradients = await instance.getDiploma(tokens[0]);
       assert.deepEqual(gradients, ["#ff00dd", "#ddddff"]);
     });
 

@@ -7,24 +7,24 @@ contract CapFiDiploma is ERC721Token, Ownable {
   string public constant name = "CapFiDiploma";
   string public constant symbol = "CFD";
 
-  struct Gradient {
-    string outer;
-    string inner;
+  struct Diploma {
+    string firstName;
+    string lastName;
   }
 
-  Gradient[] public gradients;
+  Diploma[] public diplomas;
 
-  function getGradient( uint _gradientId ) public view returns(string outer, string inner){
-    Gradient memory _grad = gradients[_gradientId];
+  function getDiploma( uint _diplomaId ) public view returns(string firstName, string lastName){
+    Diploma memory _dipl = diplomas[_diplomaId];
 
-    outer = _grad.outer;
-    inner = _grad.inner;
+    firstName = _dipl.firstName;
+    lastName = _dipl.lastName;
   }
 
-  function mint(string _outer, string _inner) public payable onlyOwner{
-    Gradient memory _gradient = Gradient({ outer: _outer, inner: _inner });
-    uint _gradientId = gradients.push(_gradient) - 1;
+  function mint(string _firstname, string _lastname) public payable onlyOwner{
+    Diploma memory _dipl = Diploma({ firstName: _firstname, lastName: _lastname});
+    uint _diplomaId = diplomas.push(_dipl) - 1;
 
-    _mint(msg.sender, _gradientId);
+    _mint(msg.sender, _diplomaId);
   }
 }

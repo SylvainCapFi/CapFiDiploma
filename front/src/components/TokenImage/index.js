@@ -13,12 +13,6 @@ const TokenImage = ({ outer, inner, size }) => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <defs>
-        <radialGradient id={gradId}>
-          <stop offset="0%" stopColor={outer} />
-          <stop offset="100%" stopColor={inner} />
-        </radialGradient>
-      </defs>
       <circle
         cx={imageSize / 2}
         cy={imageSize / 2}

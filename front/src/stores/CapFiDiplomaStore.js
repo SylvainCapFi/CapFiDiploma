@@ -9,22 +9,22 @@ class CapFiDiplomaStore {
 
   constructor(contractsStore) {
     this.contractsStore = contractsStore;
-    when(() => this.contractsStore.CapFiDiplomaInstance, this.setup);
+    when(() => this.contractsStore.capFiDiplomaInstance, this.setup);
   }
 
   setup = async () => {
-    const { CapFiDiplomaInstance } = this.contractsStore;
-    const owner = await CapFiDiplomaInstance.owner();
+    const { capFiDiplomaInstance } = this.contractsStore;
+    const owner = await capFiDiplomaInstance.owner();
     this.setOwner(owner);
     this.fetchTokens();
   };
 
   fetchTokens = async () => {
-    const { CapFiDiplomaInstance } = this.contractsStore;
-    const tokens = await CapFiDiplomaInstance.tokensOf(this.owner);
+    const { capFiDiplomaInstance } = this.contractsStore;
+    const tokens = await capFiDiplomaInstance.tokensOf(this.owner);
     const gradients = await Promise.all(
       tokens.map(async token => {
-        return CapFiDiplomaInstance.getGradient(token);
+        return capFiDiplomaInstance.getDiploma(token);
       })
     );
     this.setIsLoading(false);
@@ -44,13 +44,13 @@ class CapFiDiplomaStore {
   }
 
   mintToken = async () => {
-    const { CapFiDiplomaInstance } = this.contractsStore;
-    const gradient = [randomColor(), randomColor()];
-    await CapFiDiplomaInstance.mint(gradient[0], gradient[1], {
+    const { capFiDiplomaInstance } = this.contractsStore;
+    const name = ['Sylvain', 'Faucon'];
+    await capFiDiplomaInstance.mint(name[0], name[1], {
       from: this.owner,
       gas: 170000
     });
-    this.appendToken({ gradient, index: this.tokenIndex++ });
+    this.appendToken({ name, index: this.tokenIndex++ });
   };
 
   setTokens(tokens) {

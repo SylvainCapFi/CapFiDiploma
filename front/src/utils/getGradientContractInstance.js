@@ -8,6 +8,6 @@ const { tokenAddress } = addresses;
 export default async function getGradientContractInstance() {
   const CapFiDiplomaContract = contract(CapFiDiplomaArtifact);
   CapFiDiplomaContract.setProvider(getProvider());
-  const CapFiDiplomaInstance = await CapFiDiplomaContract.at(tokenAddress);
-  return CapFiDiplomaInstance;
+  const capFiDiplomaInstance = await CapFiDiplomaContract.at(tokenAddress);
+  return capFiDiplomaInstance;
 }
