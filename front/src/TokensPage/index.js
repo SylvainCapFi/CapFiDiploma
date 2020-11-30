@@ -9,8 +9,24 @@ import "./TokensPage.css";
 const TokensPage = ({ capFiDiplomaStore: { mintToken, isLoading } }) => {
   return (
     <div className="TokensPage">
-      <h1>Gradient Tokens</h1>
+      <h1>Generate Diploma</h1>
+      <form>
+        <label>
+          Prenom :
+          <input
+            name="prenom"
+            type="text"
+            />
+        </label>
+        <label>
+          Nom :
+          <input
+            name="nom"
+            type="text"/>
+        </label>
+
       <Button onClick={mintToken} label="Mint token" />
+      </form>
       <div className="TokensPage-tokens">
         <WithLoader isLoading={isLoading}>
           <TokensList />

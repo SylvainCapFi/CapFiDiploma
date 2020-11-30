@@ -45,12 +45,12 @@ class CapFiDiplomaStore {
 
   mintToken = async () => {
     const { capFiDiplomaInstance } = this.contractsStore;
-    const name = ['Sylvain', 'Faucon'];
-    await capFiDiplomaInstance.mint(name[0], name[1], {
+    const gradient = ['test', 'hop'];
+    await capFiDiplomaInstance.mint(gradient[0], gradient[1], {
       from: this.owner,
       gas: 170000
     });
-    this.appendToken({ name, index: this.tokenIndex++ });
+    this.appendToken({ gradient, index: this.tokenIndex++ });
   };
 
   setTokens(tokens) {
