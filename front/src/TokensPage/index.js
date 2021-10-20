@@ -7,6 +7,13 @@ import { inject, observer } from "mobx-react";
 import "./TokensPage.css";
 
 const TokensPage = ({ capFiDiplomaStore: { mintToken, isLoading } }) => {
+  this.state = {
+      consultant: {
+        prenom: '',
+        nom: ''
+      }
+    }
+
   return (
     <div className="TokensPage">
       <h1>Generate Diploma</h1>
@@ -16,16 +23,19 @@ const TokensPage = ({ capFiDiplomaStore: { mintToken, isLoading } }) => {
           <input
             name="prenom"
             type="text"
+            id="prenom"
             />
         </label>
         <label>
           Nom :
           <input
             name="nom"
-            type="text"/>
+            type="text"
+            id="nom"
+            />
         </label>
 
-      <Button onClick={mintToken} label="Mint token" />
+      <Button onClick={() => mintToken(document.getElementById('prenom').value, document.getElementById('nom').value)} label="Mint token" />
       </form>
       <div className="TokensPage-tokens">
         <WithLoader isLoading={isLoading}>
