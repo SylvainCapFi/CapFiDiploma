@@ -43,9 +43,9 @@ class CapFiDiplomaStore {
     });
   }
 
-  mintToken = async () => {
+  mintToken = async (prenom,nom) => {
     const { capFiDiplomaInstance } = this.contractsStore;
-    const gradient = ['Prenom', 'Nom'];
+    const gradient = [''+prenom, ''+nom];
     await capFiDiplomaInstance.mint(gradient[0], gradient[1], {
       from: this.owner,
       gas: 170000
