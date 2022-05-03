@@ -66,4 +66,3 @@ You can remove all minted tokens by migrating your contract again:
 ```sh
 truffle migrate --reset
 ```
-Special thanks : for [my blog](http://maksimivanov.com) series about non-fungible token, where we were doing CryptoKitties clone.
